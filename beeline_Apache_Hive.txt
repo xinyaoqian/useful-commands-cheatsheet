@@ -1,0 +1,45 @@
+1.1 Beeline
+
+Introduction: Beeline is a nifty command line tool where you can configure everything about a Hive query.
+
+Why beeline: Through beeline, you can do common tasks like upload a CSV as a Hive table, export a CSV larger than 1M rows, set arbitrary configuration attributes, or perform CREATE/DELETE/INSERT/UDPATE (often called CRUD) operations on a table.
+
+Beeline is an appropriate place to test SQL for Piper Contracts.
+
+1.2 Apach Hive
+the environment is Apache Hive, the SQL commands may sometimes slightly different from other SQL
+
+Alter Table/Partition/Column
+Alter Table
+-------------
+Rename Table
+-------------
+```
+ALTER TABLE table_name RENAME TO new_table_name;
+```
+--------------
+Add Partitions
+--------------
+```
+ALTER TABLE table_name ADD [IF NOT EXISTS] PARTITION partition_spec [LOCATION 'location'][, PARTITION partition_spec [LOCATION 'location'], ...];
+ 
+partition_spec:
+  : (partition_column = partition_col_value, partition_column = partition_col_value, ...)
+```
+Alter Column
+----------------------------------------
+Change Column Name/Type/Position/Comment
+----------------------------------------
+```
+ALTER TABLE table_name [PARTITION partition_spec] CHANGE [COLUMN] col_old_name col_new_name column_type
+  [COMMENT col_comment] [FIRST|AFTER column_name] [CASCADE|RESTRICT];
+```
+-------------------
+Add/Replace Columns
+-------------------
+```
+ALTER TABLE table_name 
+  [PARTITION partition_spec]                 -- (Note: Hive 0.14.0 and later)
+  ADD|REPLACE COLUMNS (col_name data_type [COMMENT col_comment], ...)
+  [CASCADE|RESTRICT]                         -- (Note: Hive 1.1.0 and later)
+```
