@@ -1,0 +1,145 @@
+Git basics
+
+Get code from GitHub
+--------------------
+git clone git@github.com:<branch>
+Get code from gitolite
+----------------------
+git clone gitolite@code.uber.internal:<branch>
+If you want to find the location of the repo, you can ssh to gitolite which will dump all the repos. Store them in a file & search for the name
+
+
+Basic workflow
+Always branch to a developer branch when making changes. Then push to that branch
+Then raise a pull request with someone to code review.
+Once you clone from master, create a branch before changing any code
+--------------------------------------------------------------------
+git checkout -b <branch_name>
+
+Make changes & then commit them.
+Shows what files are changed
+----------------------------
+git status
+
+Add the files that needs to be committed
+----------------------------------------
+git add <file1> <file2>
+
+Add all the tracked files
+-------------------------
+git add -u
+
+Commit the files to your branch
+-------------------------------
+git commit -m "msg ..."
+
+Then push & create a pull request
+---------------------------------
+git push -u origin <branch_name>
+
+
+When you have made some changes locally & master has moved forward (you haven’t committed anything yet)
+Save you current changes (on your local machine)
+------------------------------------------------------------------------------------------------------
+git stash
+
+
+Switch to master
+----------------
+git checkout master
+
+
+Pull the changes from the remote repo & merge it onto local machine
+-------------------------------------------------------------------
+git pull
+
+Create a new branch
+-------------------
+git checkout -b <branch_name>
+
+Merge back the stashed local changes
+------------------------------------
+git stash pop
+
+Delete old branch if required
+-----------------------------
+git branch -d <branch_name>
+git push origin --delete <branch_name>
+
+When you have made some changes locally & master has moved forward (you have committed to your branch)
+------------------------------------------------------------------------------------------------------
+git checkout master
+git pull
+git checkout <branch_name>
+git rebase master
+Resolve any dependencies if required
+
+Squashing bunch of commits into one (Do only on branches, not on master)
+Do git rebase with the commit id, till all commits needs to be squashed
+-----------------------------------------------------------------------
+git rebase -i <commit-id>
+This will open a document to specify what to do with each of the different commits
+
+enter “reword” for the first commit
+enter “fixup” for rest of the commits
+save & exit
+
+Then it will ask to reword the first commit, reword it if required (save & exit)
+Regular git push might fail if you have already pushed to remote branch, so we need to use -f
+---------------------------------------------------------------------------------------------
+git push -f origin <branch_name>
+Tagging (Lightweight)
+This will be used when you release some version of the code that you have checked-in
+
+git tag <tag_name>
+git push origin <tag_name>
+git show <tag_name>
+Get rid of all local changes (Careful)
+git reset --hard <branch>
+ex: git reset --hard origin/master
+Get rid of all local changes to a single file (Careful)
+git checkout -- file
+Checkout a remote branch other than master
+git fetch
+git checkout <branch_name>
+Misc
+
+To see what is commited (logs)
+-----------------------------
+git log
+git log --graph --oneline --decorate --all
+git log --pretty=oneline --decorate --graph
+
+What is the current state of the files
+--------------------------------------
+git status
+Seeing branch info
+
+git remote -v
+git branch -v
+git branch -v -a
+
+To see the diff of the current changes
+--------------------------------------
+git diff
+
+To see the diff of the files that are staged (using git add)
+------------------------------------------------------------
+git diff --cached
+
+Submodules
+Do init for first time & pull later
+-----------------------------------
+git submodule update --init --recursive 
+git pull --recurse-submodules
+
+Advanced (Use once you are comfortable with basics)
+---------------------------------------------------
+Git Patch
+Used to apply changes from one branch to another branch
+
+git diff -R <branch_name> -- <file_path> > diff.patch
+patch -p1 < diff.patch
+Creating separate branches from progressive commits
+Rollback to the required commit - This creates a headless branch
+Then run below arc command, which will re-write the git commit

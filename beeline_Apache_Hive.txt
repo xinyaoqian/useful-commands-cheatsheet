@@ -1,4 +1,4 @@
-1.1 Beeline
+e1.1 Beeline
 
 Introduction: Beeline is a nifty command line tool where you can configure everything about a Hive query.
 
@@ -6,7 +6,7 @@ Why beeline: Through beeline, you can do common tasks like upload a CSV as a Hiv
 
 Beeline is an appropriate place to test SQL for Piper Contracts.
 
-1.2 Apach Hive
+1.2 Apache Hive
 the environment is Apache Hive, the SQL commands may sometimes slightly different from other SQL
 
 Alter Table/Partition/Column
