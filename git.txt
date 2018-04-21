@@ -104,7 +104,7 @@ git fetch
 git checkout <branch_name>
 Misc
 
-To see what is commited (logs)
+To see what is committed (logs)
 -----------------------------
 git log
 git log --graph --oneline --decorate --all
@@ -133,13 +133,30 @@ Do init for first time & pull later
 git submodule update --init --recursive 
 git pull --recurse-submodules
 
-Advanced (Use once you are comfortable with basics)
----------------------------------------------------
-Git Patch
-Used to apply changes from one branch to another branch
 
+Advanced
+
+Git Patch
+
+Used to apply changes from one branch to another branch
+-------------------------------------------------------
 git diff -R <branch_name> -- <file_path> > diff.patch
 patch -p1 < diff.patch
+
 Creating separate branches from progressive commits
 Rollback to the required commit - This creates a headless branch
 Then run below arc command, which will re-write the git commit
+
+More on git stash
+-----------------
+git stash list [<options>]
+git stash show [<stash>]
+git stash drop [-q|--quiet] [<stash>]
+git stash ( pop | apply ) [--index] [-q|--quiet] [<stash>]
+git stash branch <branchname> [<stash>]
+git stash [push [-p|--patch] [-k|--[no-]keep-index] [-q|--quiet]
+	     [-u|--include-untracked] [-a|--all] [-m|--message <message>]
+	     [--] [<pathspec>…​]]
+git stash clear
+git stash create [<message>]
+git stash store [-m|--message <message>] [-q|--quiet] <commit>
