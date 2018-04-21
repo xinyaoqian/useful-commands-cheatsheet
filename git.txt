@@ -37,17 +37,14 @@ Then push & create a pull request
 ---------------------------------
 git push -u origin <branch_name>
 
-
 When you have made some changes locally & master has moved forward (you haven’t committed anything yet)
 Save you current changes (on your local machine)
 ------------------------------------------------------------------------------------------------------
 git stash
 
-
 Switch to master
 ----------------
 git checkout master
-
 
 Pull the changes from the remote repo & merge it onto local machine
 -------------------------------------------------------------------
@@ -86,7 +83,7 @@ save & exit
 
 Then it will ask to reword the first commit, reword it if required (save & exit)
 Regular git push might fail if you have already pushed to remote branch, so we need to use -f
----------------------------------------------------------------------------------------------
+
 git push -f origin <branch_name>
 Tagging (Lightweight)
 This will be used when you release some version of the code that you have checked-in
