@@ -1,0 +1,9 @@
+Go test for specified unit test file
+------------------------------------
+go test $file_name
+
+Go test for specified unit test
+-------------------------------
+go test $filename -run ^testname
+
+
