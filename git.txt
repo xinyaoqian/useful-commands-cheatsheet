@@ -70,6 +70,9 @@ git pull
 git checkout <branch_name>
 git rebase master
 Resolve any dependencies if required
+Git rebase --continue
+Also, can do a rebase without switching out of the current branch
+git pull --rebase <remote name> <branch name>
 
 Squashing bunch of commits into one (Do only on branches, not on master)
 Do git rebase with the commit id, till all commits needs to be squashed
