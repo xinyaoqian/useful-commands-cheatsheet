@@ -1,11 +1,15 @@
-1. JAVA_HOME setting, GRADLE_HOME setting problems
-if installed by Homebrew, the installation locations is got by
+1. GRADLE_HOME setting problems
+If installed by Homebrew, the installation locations is got by
 brew info gradle
 
-update the GRADLE_HOME variable:
-append 'libexec' to the end of the installation location
+Update the GRADLE_HOME variable:
+Append 'libexec' to the end of the installation location
 export GRADLE_HOME=path
 export PATH=$GRADLE_HOME/bin:$PATH
 apply change by running source .bash_profile
 
+2. JAVA_HOME setting problems
+Check the location for all versions of java installed
+/usr/libexec/java_home  -V
 
+Other steps are the same as the GRADLE_HOME setting process
