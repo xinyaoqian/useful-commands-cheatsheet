@@ -13,3 +13,24 @@ Check the location for all versions of java installed
 /usr/libexec/java_home  -V
 
 Other steps are the same as the GRADLE_HOME setting process
+
+##########################
+Java Learning Notes
+##########################
+
+1. NullPointerException
+NullPointerException is the exception that occurs when you declare a variable but did not create an object
+Ex:
+public void doSomething(SomeObject obj) {
+   //do something to obj
+}
+If the obj passed in not initialized, and a method is intended to do something with the obj, then an exception will be thrown.
+But, if the intention of the method is not solely to manipulate on the obj, then a null parameter may be acceptable. In this case, you would need to check for a null parameter and behave differently. Like:
+public void doSomething(SomeObject obj) {
+    if(obj != null) {
+       //do something
+    } else {
+       //do something else
+    }
+}
+
