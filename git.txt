@@ -127,14 +127,26 @@ To see the diff of the files that are staged (using git add)
 ------------------------------------------------------------
 git diff --cached
 
+Delete branch
+-------------
+	delete local branch
+	git branch -d branch_name
+	if there are error msg: he branch 'branch_name' is not fully merged. If you are sure you want to delete it
+	force delete
+	git branch -D branch_name
+
+	delete remote branch
+	git push origin --delete branch_name
+
 Submodules
 Do init for first time & pull later
 -----------------------------------
-git submodule update --init --recursive 
+git submodule update --init --recursive
 git pull --recurse-submodules
 
-
-Advanced
+##############
+## Advanced ##
+#############
 
 Git Patch
 
@@ -160,3 +172,8 @@ git stash [push [-p|--patch] [-k|--[no-]keep-index] [-q|--quiet]
 git stash clear
 git stash create [<message>]
 git stash store [-m|--message <message>] [-q|--quiet] <commit>
+
+Output git branch as a graph tree
+---------------------------------
+git log --graph --pretty=oneline --abbrev-commit
+git show-branch --<options>

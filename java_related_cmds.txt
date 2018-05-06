@@ -34,3 +34,6 @@ public void doSomething(SomeObject obj) {
     }
 }
 
+2. lombok project
+	@Getter and @Setter
+	#TODO https://projectlombok.org/features/GetterSetter
