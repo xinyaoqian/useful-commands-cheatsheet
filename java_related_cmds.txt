@@ -11,8 +11,29 @@ apply change by running source .bash_profile
 2. JAVA_HOME setting problems
 Check the location for all versions of java installed
 /usr/libexec/java_home  -V
-
 Other steps are the same as the GRADLE_HOME setting process
+
+3. Run unit test
+JUnit test:
+[JUnit 4.X]
+java -cp .:/usr/share/java/junit.jar org.junit.runner.JUnitCore [test class name]
+[JUnit 3.X]
+java -cp .:/usr/share/java/junit.jar junit.textui.TestRunner [test class name]
+[Maven way]
+mvn clean test
+mvn clean test -Dtest=your.package.TestClassName
+mvn clean test -Dtest=your.package.TestClassName#particularMethod
+[Gradle way]
+gradle test
+gradle test --tests your.package.TestClassName
+gradle test --tests your.package.TestClassName.particularMethod
+gradle test --info
+notice: if gradle wrapper is used, ./gradlew is used to replace gardle
+[Normal wan]
+compile
+javac -d /absolute/path/for/compiled/classes -cp /absolute/path/to/junit-4.12.jar /absolute/path/to/TestClassName.java
+run test
+java -cp /absolute/path/for/compiled/classes:/absolute/path/to/junit-4.12.jar:/absolute/path/to/hamcrest-core-1.3.jar org.junit.runner.JUnitCore your.package.TestClassName
 
 ##########################
 Java Learning Notes
@@ -37,3 +58,5 @@ public void doSomething(SomeObject obj) {
 2. lombok project
 	@Getter and @Setter
 	#TODO https://projectlombok.org/features/GetterSetter
+
+3.
