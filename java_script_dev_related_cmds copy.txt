@@ -1,0 +1,8 @@
+nvm
+
+npm
+
+##########################
+JavaScript Related Notes##
+##########################
+1. differences among const, let, var

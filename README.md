@@ -9,3 +9,5 @@ This repository contains useful commands regarding shell, git and computer langu
 3 useful commands for Java and learning notes
 
 4 useful commands for Golang and learning notes
+
+5 useful commands for JavaScript and learning notes
