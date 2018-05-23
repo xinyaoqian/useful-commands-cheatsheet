@@ -177,3 +177,15 @@ Output git branch as a graph tree
 ---------------------------------
 git log --graph --pretty=oneline --abbrev-commit
 git show-branch --<options>
+
+*****************
+** arc related **
+*****************
+
+run diff checking without generate a new diff
+---------------------------------------------
+arc diff --no-diff
+
+generate a diff without diff checking
+-------------------------------------
+arc diff --only
