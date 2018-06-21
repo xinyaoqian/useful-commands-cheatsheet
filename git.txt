@@ -189,3 +189,9 @@ arc diff --no-diff
 generate a diff without diff checking
 -------------------------------------
 arc diff --only
+
+Git Submodule
+git-submodule - Initialize, update or inspect submodules/ Inspect, update and manage submodules
+TODO: https://git-scm.com/docs/gitsubmodules
+https://git-scm.com/docs/git-submodule
+
