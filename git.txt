@@ -178,6 +178,20 @@ Output git branch as a graph tree
 git log --graph --pretty=oneline --abbrev-commit
 git show-branch --<options>
 
+
+More on git reset/revert
+------------------------
+git revert: creates a new commit that undoes the changes from a previous commit
+git reset: it modifies the indexes, or it changes which commit a branch head is currently pointing at.
+git-reset - Reset current HEAD to the specified state
+
+[Error] Ref exists, could not create....
+----------------------------------------
+git update-ref -d <ref>
+
+Or: git remote prune origin
+Stack Link: https://stackoverflow.com/questions/43533473/error-cannot-lock-ref-refs-tags-exists-cannot-create-refs-tags
+
 *****************
 ** arc related **
 *****************
@@ -194,4 +208,7 @@ Git Submodule
 git-submodule - Initialize, update or inspect submodules/ Inspect, update and manage submodules
 TODO: https://git-scm.com/docs/gitsubmodules
 https://git-scm.com/docs/git-submodule
+
+Git clean git history
+git filter-branch --force --prune-empty --index-filter "git rm --cached --ignore-unmatch v1.sql" --tag-name-filter cat -- --all
 
